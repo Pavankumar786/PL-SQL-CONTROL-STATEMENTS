@@ -1,0 +1,177 @@
+DECLARE  
+   a number(3) := 500;  
+BEGIN   
+   IF( a < 20 ) THEN  
+      dbms_output.put_line('a is less than 20 ' );  
+   ELSE  
+      dbms_output.put_line('a is not less than 20 ' );  
+   END IF;  
+   dbms_output.put_line('value of a is :'||a);  
+END;  
+
+a is not less than 20 
+value of a is :500
+
+Statement processed.
+
+0.01 seconds
+
+DECLARE  
+   grade char(1) := 'A';  
+BEGIN  
+   CASE grade  
+      when 'A' then dbms_output.put_line('Excellent');  
+      when 'B' then dbms_output.put_line('Very good');  
+      when 'C' then dbms_output.put_line('Good');  
+      when 'D' then dbms_output.put_line('Average');  
+      when 'F' then dbms_output.put_line('Passed with Grace');  
+      else dbms_output.put_line('Failed');  
+   END CASE;  
+END;
+  
+Excellent
+PL/SQL procedure successfully completed. 
+
+DECLARE  
+i NUMBER := 1;  
+BEGIN  
+LOOP  
+EXIT WHEN i>10;  
+DBMS_OUTPUT.PUT_LINE(i);  
+i := i+1;  
+END LOOP;  
+END; 
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Statement processed.
+
+0.01 seconds 
+
+DECLARE  
+i INTEGER := 1;  
+BEGIN  
+WHILE i <= 10 LOOP  
+DBMS_OUTPUT.PUT_LINE(i);  
+i := i+1;  
+END LOOP;  
+END;  
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Statement processed.
+
+0.01 seconds 
+
+BEGIN  
+FOR k IN 1..10 LOOP  
+-- note that k was not declared  
+DBMS_OUTPUT.PUT_LINE(k);  
+END LOOP;  
+END;   
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Statement processed.
+
+0.01 seconds 
+
+DECLARE  
+  x NUMBER := 0;  
+BEGIN  
+  LOOP -- After CONTINUE statement, control resumes here  
+    DBMS_OUTPUT.PUT_LINE ('Inside loop:  x = ' || TO_CHAR(x));  
+    x := x + 1;  
+    IF x < 3 THEN  
+      CONTINUE;  
+    END IF;  
+    DBMS_OUTPUT.PUT_LINE  
+      ('Inside loop, after CONTINUE:  x = ' || TO_CHAR(x));  
+    EXIT WHEN x = 5;  
+  END LOOP;  
+   
+  DBMS_OUTPUT.PUT_LINE (' After loop:  x = ' || TO_CHAR(x));  
+END;  
+/  
+
+Inside loop:  x = 0
+Inside loop:  x = 1
+Inside loop:  x = 2
+Inside loop, after CONTINUE:  x = 3
+Inside loop:  x = 3
+Inside loop, after CONTINUE:  x = 4
+Inside loop:  x = 4
+Inside loop, after CONTINUE:  x = 5
+ After loop:  x = 5
+
+Statement processed.
+
+0.01 seconds
+
+DECLARE  
+   a number(2) := 30;  
+BEGIN  
+   <<loopstart>>  
+   -- while loop execution   
+   WHILE a < 50 LOOP  
+      dbms_output.put_line ('value of a: ' || a);  
+      a := a + 1;  
+      IF a = 35 THEN  
+         a := a + 1;  
+         GOTO loopstart;  
+      END IF;  
+   END LOOP;  
+END;  
+/  
+
+
+value of a: 30
+value of a: 31
+value of a: 32
+value of a: 33
+value of a: 34
+value of a: 36
+value of a: 37
+value of a: 38
+value of a: 39
+value of a: 40
+value of a: 41
+value of a: 42
+value of a: 43
+value of a: 44
+value of a: 45
+value of a: 46
+value of a: 47
+value of a: 48
+value of a: 49
+
+Statement processed.
+
+0.00 seconds
